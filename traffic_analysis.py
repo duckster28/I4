@@ -44,7 +44,7 @@ for index, row in aggregated_df.iterrows():
         popup=f"{row['location_name']}<br>Total Throughput: {row['total_throughput']}"
     ).add_to(m)
 
-# Generate a heatmap based on throughput
+# Generate heatmap
 heatmap_data = [[row['latitude'], row['longitude'], row['total_throughput']] for index, row in aggregated_df.iterrows()]
 for index, row in aggregated_df.iterrows():
     folium.CircleMarker(
@@ -57,7 +57,7 @@ for index, row in aggregated_df.iterrows():
     ).add_to(m)
 HeatMap(heatmap_data, radius=25).add_to(m)
 
-# Save the map as an HTML file
+
 m.save('toronto_traffic_map.html')
 
-print("✅ Map saved as 'toronto_traffic_map.html'. Open it in any browser.")
+print("Saved as 'toronto_traffic_map.html'")
